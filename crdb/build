@@ -1,0 +1,27 @@
+#!/bin/bash
+app="crdb"
+#db="production.sqlite"
+
+#load the latest version of the app
+git clone https://github.com/matthew-parlette/crdb.git
+if [ "$?" -eq "128" ]; then
+  echo "loading latest version of $app"
+  eval "cd $app;git pull;cd .."
+fi
+
+eval "cp $app/config/environments/production.docker.rb $app/config/environments/production.rb"
+
+#eval "chmod 777 $app"
+
+#setup the database
+#if [ ! -a "$db" ]; then
+  #echo "creating database ($db)..."
+  #eval "touch $db"
+#fi
+
+if [ ! -d "data" ]; then
+  eval "mkdir data"
+fi
+
+#build the container
+docker build -t crdb .

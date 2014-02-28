@@ -1,0 +1,8 @@
+#!/bin/bash
+pwd=`pwd`
+
+echo "deleting old pid..."
+rm crdb/tmp/pids/server.pid
+
+echo "starting container..."
+eval "docker run -p 8006:3000 -v $pwd/data:/data:rw crdb"
