@@ -1,3 +1,2 @@
 #!/bin/bash
-pwd=`pwd`
-eval "docker run -p -d 8006:3000 -v $pwd/crdb:/rails:rw crdb"
+eval "docker run -d -p 8006:3000 -v `pwd`/data:/data:rw crdb"
