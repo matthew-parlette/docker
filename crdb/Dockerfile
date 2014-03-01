@@ -19,7 +19,7 @@ ADD crdb /rails
 
 #copy and execute setup script
 ADD scripts/setup /setup
-#RUN /setup
+RUN /setup
 
 #copy the start script
 ADD scripts/start /start

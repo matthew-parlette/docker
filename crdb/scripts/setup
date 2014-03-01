@@ -5,5 +5,5 @@ cd /rails
 bundle config path "/rails/bundler"
 bundle install
 sed -i 's/db\/production.sqlite3/\/data\/production.sqlite3/g' /rails/config/database.yml
-RAILS_ENV=production ./bin/rake db:migrate
-RAILS_ENV=production ./bin/rake assets:precompile
+#RAILS_ENV=production ./bin/rake db:migrate
+#RAILS_ENV=production ./bin/rake assets:precompile

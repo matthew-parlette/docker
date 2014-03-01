@@ -1,10 +1,11 @@
 #!/bin/bash
-/setup
 cd /rails
 
 #clear out the old pid if shutdown wasn't clean
-if [ -a /rails/tmp/pids/server.pid ]; then
-  echo "deleting old pid..."
-  rm /rails/tmp/pids/server.pid
-fi
+#if [ -a /rails/tmp/pids/server.pid ]; then
+  #echo "deleting old pid..."
+  #rm /rails/tmp/pids/server.pid
+#fi
+RAILS_ENV=production ./bin/rake db:migrate
+RAILS_ENV=production ./bin/rake assets:precompile
 RAILS_ENV=production ./bin/rails server $* -p 3000
