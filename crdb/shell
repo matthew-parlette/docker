@@ -1,0 +1,2 @@
+#!/bin/bash
+eval "docker run -i -t -p 8006:3000 -v `pwd`/data:/data:rw crdb /bin/bash"
